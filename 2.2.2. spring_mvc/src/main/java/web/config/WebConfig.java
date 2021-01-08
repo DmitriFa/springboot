@@ -16,41 +16,41 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @EnableWebMvc
 @ComponentScan("web")
 public class WebConfig implements WebMvcConfigurer {
-
-    private final ApplicationContext applicationContext;
-
-
-    public WebConfig(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-    }
+    /*
+      private final ApplicationContext applicationContext;
 
 
-    @Bean
-    public SpringResourceTemplateResolver templateResolver() {
-        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/pages/");
-        templateResolver.setSuffix(".html");
-        return templateResolver;
-    }
+       public WebConfig(ApplicationContext applicationContext) {
+           this.applicationContext = applicationContext;
+       }
 
 
-    @Bean
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setEnableSpringELCompiler(true);
-        return templateEngine;
-    }
+          @Bean
+          public SpringResourceTemplateResolver templateResolver() {
+              SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+              templateResolver.setApplicationContext(applicationContext);
+              templateResolver.setPrefix("/WEB-INF/pages/");
+              templateResolver.setSuffix(".html");
+              return templateResolver;
+          }
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setCharacterEncoding("UTF-8");
-        resolver.setContentType("text/html; charset=UTF-8");
-        resolver.setTemplateEngine(templateEngine());
-        registry.viewResolver(resolver);
-    }
+
+          @Bean
+          public SpringTemplateEngine templateEngine() {
+              SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+              templateEngine.setTemplateResolver(templateResolver());
+              templateEngine.setEnableSpringELCompiler(true);
+              return templateEngine;
+          }
+
+          @Override
+          public void configureViewResolvers(ViewResolverRegistry registry) {
+              ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+              resolver.setCharacterEncoding("UTF-8");
+              resolver.setContentType("text/html; charset=UTF-8");
+              resolver.setTemplateEngine(templateEngine());
+              registry.viewResolver(resolver);
+          }*/
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/admin").setViewName("admin");

@@ -3,7 +3,6 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -11,16 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.User;
 import web.service.UserService;
-
-import javax.management.loading.MLetContent;
-import javax.naming.Binding;
 import java.util.*;
 
 @Controller
 public class UserController {
-
-    private int id;
-    private ModelMap model;
 
     public UserController() {
     }
@@ -119,7 +112,7 @@ public class UserController {
         return "users";
     }
     @GetMapping(value = "/user")
-    public String seeUser(ModelMap model) throws Exception {
+    public String seeUser(ModelMap model)  {
     User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     model.addAttribute("messages", user);
            return "user";
